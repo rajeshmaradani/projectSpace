@@ -1,11 +1,10 @@
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useCallback,useEffect, useRef } from 'react';
 import { Canvas } from '@react-three/fiber'
 import { Environment, OrbitControls, Html } from '@react-three/drei'
 import { Model } from "./Explorer";
 import { ConvaiClient } from 'convai-web-sdk';
 import { SETTINGS } from './constants';
-
 const convaiClient = new ConvaiClient({
   apiKey: SETTINGS['CONVAI-API-KEY'],
   characterId: SETTINGS['CHARACTER-ID'],
@@ -51,7 +50,7 @@ export default function App() {
 
   const [keyPressed, setKeyPressed] = useState(false);
 
-  function handleSpacebarPress(event) {
+  const handleSpacebarPress = useCallback((event) => {
     if (event.keyCode === 32 && !keyPressed) {
       setKeyPressed(true);
       finalizedUserText.current = "";
@@ -60,28 +59,37 @@ export default function App() {
       setNpcText("");
       convaiClient.startAudioChunk();
     }
-  }
+  }, [keyPressed, setKeyPressed, finalizedUserText, npcTextRef, setUserText, setNpcText]);
 
-  function handleSpacebarRelease(event) {
+  const handleSpacebarRelease = useCallback((event) => {
     if (event.keyCode === 32 && keyPressed) {
       setKeyPressed(false);
       convaiClient.endAudioChunk();
     }
-  }
+  }, [keyPressed, setKeyPressed]);
 
   useEffect(() => {
-    window.addEventListener('keydown', handleSpacebarPress);
-    window.addEventListener('keyup', handleSpacebarRelease);
-    return () => {
-      window.removeEventListener('keydown', handleSpacebarPress);
-      window.removeEventListener('keyup', handleSpacebarRelease);
+    const handleKeyDown = (event) => {
+      handleSpacebarPress(event);
     };
-  }, [keyPressed]);
+
+    const handleKeyUp = (event) => {
+      handleSpacebarRelease(event);
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('keyup', handleKeyUp);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('keyup', handleKeyUp);
+    };
+  }, [handleSpacebarPress, handleSpacebarRelease]);
 
 
   return (
     <Canvas shadows camera={{ position: [0, 0, 15], fov: 30 }}>
-      <Environment files="/snowy_forest_path_01_4k.hdr" ground={{ height: 5, radius: 30, scale: 20 }} />
+      <Environment files="/thubgfbg.hdr" ground={{ height: 5, radius: 30, scale: 20 }} />
       <Model position={[-2, 0, 3]} scale={1.8} animationName={isTalking ? "talk" : "idle"} />
       <Html position={[-1.5, -0.75, 3]}>
         {userText && (<div style={{

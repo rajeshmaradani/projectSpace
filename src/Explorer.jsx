@@ -395,3 +395,351 @@ export function Model(props) {
 }
 
 useGLTF.preload('/andyupdated23.glb')
+
+// import React, { useRef,useEffect,useCallback } from 'react'
+// import { useGLTF, useAnimations } from '@react-three/drei'
+
+// export function Model(props) {
+//   const group = useRef()
+//   const { nodes, materials, animations } = useGLTF('/idleplus.glb')
+//   const { actions } = useAnimations(animations, group)
+//   console.log(animations)
+//   const handleAnimation = useCallback((animationName) => {
+//     if (!actions) return; // Ensure actions are available
+//     console.log("Animation name:", animationName);
+//     // Define animation names according to your GLB file
+//     const from = animationName === 'talk' ? 'Armature|mixamo.com|Layer0.004' : 'Armature|mixamo.com|Layer0';
+//     const to = animationName === 'talk' ? 'Armature|mixamo.com|Layer0' : 'Armature|mixamo.com|Layer0.002';
+
+//     // Check if actions exist and the specified animation is running
+//     if (actions[from] && actions[from].isRunning()) {
+//       actions[from].fadeOut(0.3);
+//     }
+
+//     // Reset, fade in, and play the target animation
+//     if (actions[to]) {
+//       actions[to].reset().fadeIn(0.5).play();
+//     } else {
+//       console.log(`Animation ${to} not found`);
+//     }
+// }, [actions]);
+
+  
+//   useEffect(() => {
+//     handleAnimation(props.animationName);
+//   }, [props.animationName, handleAnimation]);
+//   return (
+//     <group ref={group} {...props} dispose={null}>
+//       <group name="Scene">
+//         <group name="Armature">
+//           <skinnedMesh
+//             name="EyeLeft"
+//             geometry={nodes.EyeLeft.geometry}
+//             material={materials.Wolf3D_Eye}
+//             skeleton={nodes.EyeLeft.skeleton}
+//             morphTargetDictionary={nodes.EyeLeft.morphTargetDictionary}
+//             morphTargetInfluences={nodes.EyeLeft.morphTargetInfluences}
+//           />
+//           <skinnedMesh
+//             name="EyeRight"
+//             geometry={nodes.EyeRight.geometry}
+//             material={materials.Wolf3D_Eye}
+//             skeleton={nodes.EyeRight.skeleton}
+//             morphTargetDictionary={nodes.EyeRight.morphTargetDictionary}
+//             morphTargetInfluences={nodes.EyeRight.morphTargetInfluences}
+//           />
+//           <skinnedMesh
+//             name="Wolf3D_Body"
+//             geometry={nodes.Wolf3D_Body.geometry}
+//             material={materials.Wolf3D_Body}
+//             skeleton={nodes.Wolf3D_Body.skeleton}
+//           />
+//           <skinnedMesh
+//             name="Wolf3D_Glasses"
+//             geometry={nodes.Wolf3D_Glasses.geometry}
+//             material={materials.Wolf3D_Glasses}
+//             skeleton={nodes.Wolf3D_Glasses.skeleton}
+//           />
+//           <skinnedMesh
+//             name="Wolf3D_Hair"
+//             geometry={nodes.Wolf3D_Hair.geometry}
+//             material={materials.Wolf3D_Hair}
+//             skeleton={nodes.Wolf3D_Hair.skeleton}
+//           />
+//           <skinnedMesh
+//             name="Wolf3D_Head"
+//             geometry={nodes.Wolf3D_Head.geometry}
+//             material={materials.Wolf3D_Skin}
+//             skeleton={nodes.Wolf3D_Head.skeleton}
+//             morphTargetDictionary={nodes.Wolf3D_Head.morphTargetDictionary}
+//             morphTargetInfluences={nodes.Wolf3D_Head.morphTargetInfluences}
+//           />
+//           <skinnedMesh
+//             name="Wolf3D_Outfit_Bottom"
+//             geometry={nodes.Wolf3D_Outfit_Bottom.geometry}
+//             material={materials.Wolf3D_Outfit_Bottom}
+//             skeleton={nodes.Wolf3D_Outfit_Bottom.skeleton}
+//           />
+//           <skinnedMesh
+//             name="Wolf3D_Outfit_Footwear"
+//             geometry={nodes.Wolf3D_Outfit_Footwear.geometry}
+//             material={materials.Wolf3D_Outfit_Footwear}
+//             skeleton={nodes.Wolf3D_Outfit_Footwear.skeleton}
+//           />
+//           <skinnedMesh
+//             name="Wolf3D_Outfit_Top"
+//             geometry={nodes.Wolf3D_Outfit_Top.geometry}
+//             material={materials.Wolf3D_Outfit_Top}
+//             skeleton={nodes.Wolf3D_Outfit_Top.skeleton}
+//           />
+//           <skinnedMesh
+//             name="Wolf3D_Teeth"
+//             geometry={nodes.Wolf3D_Teeth.geometry}
+//             material={materials.Wolf3D_Teeth}
+//             skeleton={nodes.Wolf3D_Teeth.skeleton}
+//             morphTargetDictionary={nodes.Wolf3D_Teeth.morphTargetDictionary}
+//             morphTargetInfluences={nodes.Wolf3D_Teeth.morphTargetInfluences}
+//           />
+//           <primitive object={nodes.Hips} />
+//         </group>
+//         <group name="Armature001" rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
+//           <primitive object={nodes.mixamorigHips} />
+//         </group>
+//         <group name="Armature002" rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
+//           <primitive object={nodes.mixamorigHips_1} />
+//         </group>
+//       </group>
+//     </group>
+//   )
+// }
+
+// useGLTF.preload('/idleplus.glb')
+
+
+
+// (2) [AnimationClip, AnimationClip]
+// 0
+// : 
+// AnimationClip
+// blendMode
+// : 
+// 2500
+// duration
+// : 
+// 9.966666221618652
+// name
+// : 
+// "Armature.001|mixamo.com|Layer0"
+// tracks
+// : 
+// (195) [VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, …]
+// uuid
+// : 
+// "1d6482a3-f645-491a-a05d-8029677db2eb"
+// [[Prototype]]
+// : 
+// Object
+// 1
+// : 
+// AnimationClip
+// blendMode
+// : 
+// 2500
+// duration
+// : 
+// 3.799999952316284
+// name
+// : 
+// "Armature.002|mixamo.com|Layer0"
+// tracks
+// : 
+// (195) [VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, …]
+// uuid
+// : 
+// "30c3ee4e-26f5-4436-8f65-d89fa9ee5cfc"
+// [[Prototype]]
+// : 
+// Object
+// length
+// : 
+// 2
+
+
+//bcjsbckjdbvjfdvdzvhjzjhvzjdfvbzdjvfjbjvys
+
+// (2) [AnimationClip, AnimationClip]
+// 0
+// : 
+// AnimationClip
+// blendMode
+// : 
+// 2500
+// duration
+// : 
+// 3.799999952316284
+// name
+// : 
+// "Armature.001|mixamo.com|Layer0"
+// tracks
+// : 
+// (198) [VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, …]
+// uuid
+// : 
+// "416868d2-4008-47d9-aa5e-a93ecbb0ead0"
+// [[Prototype]]
+// : 
+// Object
+// 1
+// : 
+// AnimationClip
+// blendMode
+// : 
+// 2500
+// duration
+// : 
+// 3.799999952316284
+// name
+// : 
+// "Armature|mixamo.com|Layer0"
+// tracks
+// : 
+// (195) [VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, QuaternionKeyframeTrack, VectorKeyframeTrack, VectorKeyframeTrack, …]
+// uuid
+// : 
+// "a3d061ce-8361-4adc-aee5-68c5ce374efe"
+// [[Prototype]]
+// : 
+// Object
+// length
+// : 
+// 2
+// [[Prototype]]
+// : 
+// Array(0)
+
+
+// import React, { useRef ,useCallback ,useEffect } from 'react'
+// import { useGLTF, useAnimations } from '@react-three/drei'
+
+// export function Model(props) {
+//   const group = useRef()
+//   const { nodes, materials, animations } = useGLTF('/demo.glb')
+//   const { actions } = useAnimations(animations, group)
+//   console.log(animations)
+  
+//   const animationMappings = {
+//     talk: {
+//       from: 'Armature.001|mixamo.com|Layer0',
+//       to: 'Armature.001|mixamo.com|Layer0.001',
+//     },
+//     wave: {
+//       from: 'Armature.001|mixamo.com|Layer0.001',
+//       to: 'Armature.001|mixamo.com|Layer0.002',
+//     },
+//     idle: {
+//       from: 'Armature.001|mixamo.com|Layer0',
+//       to: 'Armature.001|mixamo.com|Layer0.002',
+//     },
+//   };
+
+//   const handleAnimation = useCallback((animationName) => {
+//     if (!actions) return; // Ensure actions are available
+
+//     const { from, to } = animationMappings[animationName];
+//     if (!from || !to) return; // Ensure valid animation mappings
+
+//     if (actions[from] && actions[from].isRunning()) {
+//       actions[from].fadeOut(0.3);
+//     }
+
+//     if (actions[to]) {
+//       actions[to].reset().fadeIn(0.5).play();
+//     } else {
+//       console.error(`Animation ${to} not found`);
+//     }
+//   }, [actions, animationMappings]);
+
+//   useEffect(() => {
+//     handleAnimation(props.animationName);
+//   }, [props.animationName, handleAnimation]);
+
+//   return (
+//     <group ref={group} {...props} dispose={null}>
+//       <group name="Scene">
+//         <group name="Armature002" rotation={[Math.PI / 2, 0, 0]} scale={0.01}>
+//           <skinnedMesh
+//             name="EyeLeft001"
+//             geometry={nodes.EyeLeft001.geometry}
+//             material={materials['Wolf3D_Eye.001']}
+//             skeleton={nodes.EyeLeft001.skeleton}
+//             morphTargetDictionary={nodes.EyeLeft001.morphTargetDictionary}
+//             morphTargetInfluences={nodes.EyeLeft001.morphTargetInfluences}
+//           />
+//           <skinnedMesh
+//             name="EyeRight001"
+//             geometry={nodes.EyeRight001.geometry}
+//             material={materials['Wolf3D_Eye.001']}
+//             skeleton={nodes.EyeRight001.skeleton}
+//             morphTargetDictionary={nodes.EyeRight001.morphTargetDictionary}
+//             morphTargetInfluences={nodes.EyeRight001.morphTargetInfluences}
+//           />
+//           <skinnedMesh
+//             name="Wolf3D_Body001"
+//             geometry={nodes.Wolf3D_Body001.geometry}
+//             material={materials.Wolf3D_Body}
+//             skeleton={nodes.Wolf3D_Body001.skeleton}
+//           />
+//           <skinnedMesh
+//             name="Wolf3D_Glasses001"
+//             geometry={nodes.Wolf3D_Glasses001.geometry}
+//             material={materials.Wolf3D_Glasses}
+//             skeleton={nodes.Wolf3D_Glasses001.skeleton}
+//           />
+//           <skinnedMesh
+//             name="Wolf3D_Hair001"
+//             geometry={nodes.Wolf3D_Hair001.geometry}
+//             material={materials.Wolf3D_Hair}
+//             skeleton={nodes.Wolf3D_Hair001.skeleton}
+//           />
+//           <skinnedMesh
+//             name="Wolf3D_Head001"
+//             geometry={nodes.Wolf3D_Head001.geometry}
+//             material={materials.Wolf3D_Skin}
+//             skeleton={nodes.Wolf3D_Head001.skeleton}
+//             morphTargetDictionary={nodes.Wolf3D_Head001.morphTargetDictionary}
+//             morphTargetInfluences={nodes.Wolf3D_Head001.morphTargetInfluences}
+//           />
+//           <skinnedMesh
+//             name="Wolf3D_Outfit_Bottom001"
+//             geometry={nodes.Wolf3D_Outfit_Bottom001.geometry}
+//             material={materials.Wolf3D_Outfit_Bottom}
+//             skeleton={nodes.Wolf3D_Outfit_Bottom001.skeleton}
+//           />
+//           <skinnedMesh
+//             name="Wolf3D_Outfit_Footwear001"
+//             geometry={nodes.Wolf3D_Outfit_Footwear001.geometry}
+//             material={materials.Wolf3D_Outfit_Footwear}
+//             skeleton={nodes.Wolf3D_Outfit_Footwear001.skeleton}
+//           />
+//           <skinnedMesh
+//             name="Wolf3D_Outfit_Top001"
+//             geometry={nodes.Wolf3D_Outfit_Top001.geometry}
+//             material={materials.Wolf3D_Outfit_Top}
+//             skeleton={nodes.Wolf3D_Outfit_Top001.skeleton}
+//           />
+//           <skinnedMesh
+//             name="Wolf3D_Teeth001"
+//             geometry={nodes.Wolf3D_Teeth001.geometry}
+//             material={materials['Wolf3D_Teeth.001']}
+//             skeleton={nodes.Wolf3D_Teeth001.skeleton}
+//             morphTargetDictionary={nodes.Wolf3D_Teeth001.morphTargetDictionary}
+//             morphTargetInfluences={nodes.Wolf3D_Teeth001.morphTargetInfluences}
+//           />
+//           <primitive object={nodes.mixamorigHips} />
+//         </group>
+//       </group>
+//     </group>
+//   )
+// }
+
+// useGLTF.preload('/demo.glb')
